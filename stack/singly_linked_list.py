@@ -36,7 +36,21 @@ class LinkedList:
                 current = current.get_next()
             # we're at the end of the linked list 
             current.set_next(new_node)
-
+    def remove_from_end(self):
+        if not self.head:
+            return None
+        # what if the list isn't empty?
+        else:
+            # what node do we want to add the new node to? 
+            # the last node in the list 
+            # we can get to the last node in the list by traversing it 
+            current = self.head
+            previous = current
+            while current.get_next() is not None:
+                previous = current
+                current = current.get_next()
+            previous.set_next(None)
+            return current.value
     def remove_from_head(self):
         # what if the list is empty?
         if not self.head:
